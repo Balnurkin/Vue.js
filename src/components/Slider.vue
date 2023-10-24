@@ -1,8 +1,14 @@
 <script>
 export default {
-    props:['id', 'title', 'text'],
+    props: [
+        'id', 
+        'title', 
+        'text'
+    ],
     data: () => {
-        return{}
+        return{
+
+        }
     },
     methods:{
 
@@ -11,7 +17,10 @@ export default {
 </script>
 
 <template>
-
+    <div>
+        <h1>{{title}}</h1>
+        <p>{{text}}</p>
+    </div>
 </template>
 
 <style scoped>
