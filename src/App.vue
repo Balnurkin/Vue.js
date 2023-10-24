@@ -9,10 +9,11 @@ export default {
   computed: {},
   watch: {
   },
-  methods: {},
+  methods: {
+    
+  },
   mounted() {
-    axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+    axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
       .then((response) => {
         this.info = response.data.bpi
         console.log(this.info);
@@ -34,6 +35,8 @@ export default {
 
 <style scoped>
 #app{
+  width: 1000px;
+  margin: 0 auto;
   display: flex;
   gap: 50px;
 }
