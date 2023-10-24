@@ -1,7 +1,14 @@
 <script>
+import Column from './components/Column.vue'
 export default {
+  components:{
+    Column,
+  },
   data: () => {
-    return{}
+    return{
+      columns: 3,
+
+    }
   },
   computed: {},
   watch: {},
@@ -10,7 +17,17 @@ export default {
 </script>
 
 <template>
-  <div class='app'>SDGDHBDGBDFBSFB</div>
+<div class="app">
+  <Column v-for="col, index in columns" :key="index">
+
+  </Column>
+</div>
+  
 </template>
 
-<style scoped></style>
+<style scoped>
+.app{
+  display: flex;
+  gap: 100px;
+}
+</style>
