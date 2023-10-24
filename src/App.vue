@@ -12,14 +12,26 @@ export default {
         {id: 3, title: 'Заголовок Slide Three', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},
         {id: 4, title: 'Заголовок Slide Four', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
       ],
-      slideId: 1,
+      slideIndex: 0,
+
     }
   },
-  computed: {},
+  computed: {
+    currentSlide(){
+      return this.slides[this.slideIndex]
+    }
+  },
   watch: {},
   methods: {
     showNextSlide(){
-
+      if(this.slideIndex < this.slides.length -1){
+        this.slideIndex++
+      }
+    },
+    showPrevSlide(){
+      if(this.slideIndex > 0){
+        this.slideIndex--
+      }
     }
   }
 }
@@ -27,13 +39,13 @@ export default {
 
 <template>
   <div class='app'>
-    <button>Previos</button>
+    <button @click="showPrevSlide">Previos</button>
     <Slider 
-      v-if=""
-      :key="slide.id"
-      :id="slide.id"
-      :title="slide.title"
-      :text="slide.text" />
+      v-if="currentSlide"
+      :key="currentSlide.id"
+      :id="currentSlide.id"
+      :title="currentSlide.title"
+      :text="currentSlide.text" />
     <button @click="showNextSlide">Next</button>
   </div>
 </template>
